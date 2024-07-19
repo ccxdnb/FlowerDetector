@@ -14,6 +14,8 @@
 		1E4D52552C4A90AD00CCB288 /* FlowerDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4D52542C4A90AD00CCB288 /* FlowerDetectorTests.swift */; };
 		1E4D525F2C4A90AD00CCB288 /* FlowerDetectorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4D525E2C4A90AD00CCB288 /* FlowerDetectorUITests.swift */; };
 		1E4D52612C4A90AD00CCB288 /* FlowerDetectorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4D52602C4A90AD00CCB288 /* FlowerDetectorUITestsLaunchTests.swift */; };
+		1EF618A42C4A91A600255708 /* Oxford102.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1EF618A32C4A91A600255708 /* Oxford102.mlmodel */; };
+		1EF618A62C4A923A00255708 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF618A52C4A923A00255708 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		1E4D525A2C4A90AD00CCB288 /* FlowerDetectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowerDetectorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4D525E2C4A90AD00CCB288 /* FlowerDetectorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerDetectorUITests.swift; sourceTree = "<group>"; };
 		1E4D52602C4A90AD00CCB288 /* FlowerDetectorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerDetectorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1EF618A32C4A91A600255708 /* Oxford102.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Oxford102.mlmodel; sourceTree = "<group>"; };
+		1EF618A52C4A923A00255708 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 			children = (
 				1E4D52432C4A90AA00CCB288 /* FlowerDetectorApp.swift */,
 				1E4D52452C4A90AA00CCB288 /* ContentView.swift */,
+				1EF618A52C4A923A00255708 /* ImagePicker.swift */,
+				1EF618A32C4A91A600255708 /* Oxford102.mlmodel */,
 				1E4D52472C4A90AD00CCB288 /* Assets.xcassets */,
 				1E4D52492C4A90AD00CCB288 /* Preview Content */,
 			);
@@ -257,6 +263,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF618A42C4A91A600255708 /* Oxford102.mlmodel in Sources */,
+				1EF618A62C4A923A00255708 /* ImagePicker.swift in Sources */,
 				1E4D52462C4A90AA00CCB288 /* ContentView.swift in Sources */,
 				1E4D52442C4A90AA00CCB288 /* FlowerDetectorApp.swift in Sources */,
 			);
@@ -425,11 +433,14 @@
 				DEVELOPMENT_TEAM = 3W636NF555;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need your camera, nothing too serious :D";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Can we see your photos?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,11 +465,14 @@
 				DEVELOPMENT_TEAM = 3W636NF555;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need your camera, nothing too serious :D";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Can we see your photos?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
