@@ -49,7 +49,7 @@ class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImageP
                 let description = try? await self?.getDescription(flowerName: results.first?.identifier ?? "")
 
                 self?.parent.output = .init(
-                    name: results.first?.identifier ?? "",
+                    name: results.first?.identifier ?? "Can't detect flower",
                     description: description ?? "")
             }
         }
