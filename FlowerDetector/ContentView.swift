@@ -14,61 +14,70 @@ struct ContentView: View {
     @State private var selectedImage: UIImage?
     @State private var output: ImagePicker.Output?
     @State private var isImagePickerPresented = false
-    @State private var sourceType: UIImagePickerController.SourceType = .camera
 
     var body: some View {
-        VStack {
-            if let selectedImage = selectedImage {
-                Image(uiImage: selectedImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 300, height: 300)
-            } else {
-                Image(systemName: "photo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 300, height: 300)
-                    .foregroundColor(.gray)
-            }
-            ScrollView {
-                VStack(alignment: .leading) {
-                    Text("Name:")
-                        .font(.title)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+        ZStack {
+            Image("bg")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
 
-                    Text(output?.name ?? "Nothig yet...")
-                        .font(.subheadline)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+            VStack {
+                if let selectedImage = selectedImage {
+                    Image(uiImage: selectedImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 300, height: 300)
+                } else {
 
-
-                    Text("Description:")
-                        .font(.title)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-
-                    Text(output?.description ?? "")
-                        .font(.subheadline)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-
-                }.padding()
-            }
-            Spacer()
-            HStack {
-                Button("Camera") {
-                    sourceType = .camera
-                    isImagePickerPresented = true
+                    VStack {
+                        Spacer()
+                        Image(systemName: "camera.macro")
+                            .resizable()
+                            .foregroundStyle(Color.fwLightPink)
+                            .padding(60)
+                            .frame(width: 300, height: 300)
+                    }
                 }
-                .padding()
-                .disabled(!UIImagePickerController.isSourceTypeAvailable(.camera))
 
-                Button("Photo Library") {
-                    sourceType = .photoLibrary
-                    isImagePickerPresented = true
+                ZStack {
+                    RoundedRectangle(cornerRadius: 30)
+                        .foregroundStyle(Color.fwLightPink.opacity(0.94))
+
+                    ScrollView {
+                        Text(output?.name ?? "")
+                            .foregroundStyle(Color.fwPurple)
+                            .font(.title)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        Text(output?.description ?? "Open camera and take a picture of a flower")
+                            .font(.subheadline)                       .foregroundStyle(Color.fwGreen)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                    }
+                    .padding(15)
                 }
-                .padding()
+                .padding(30)
+
+                HStack {
+                    VStack {
+                        Button() {
+                            isImagePickerPresented = true
+                        } label: {
+                            Image(systemName: "camera")
+                                .tint(Color.fwLightPink)
+                                .font(.largeTitle)
+                        }
+                        .offset(y: 10)
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: 50)
+                .background(LinearGradient(colors: [.fwLightPink, .fwPurple, .fwLightPink], startPoint: .leading, endPoint: .trailing).opacity(0.9))
+
             }
-        }
-        .sheet(isPresented: $isImagePickerPresented) {
-            ImagePicker(selectedImage: $selectedImage, output: $output, sourceType: sourceType)
+            .sheet(isPresented: $isImagePickerPresented) {
+                ImagePicker(selectedImage: $selectedImage, output: $output, sourceType: .camera)
+            }
         }
     }
 }
